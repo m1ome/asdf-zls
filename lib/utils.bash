@@ -55,8 +55,7 @@ download_release() {
 	*) fail "Unsupported architecture" ;;
 	esac
 
-	url="$GH_REPO/releases/download/${version}/zls-${architecture}-${platform}.tar.gz"
-
+	url="$GH_REPO/releases/download/${version}/zls-${architecture}-${platform}.tar.xz"
 	echo "* Downloading $TOOL_NAME release $version from: $url"
 	curl "${curl_opts[@]}" -H "Accept: application/octet-stream" -o "$filename" "$url" || fail "Could not download $url"
 }
