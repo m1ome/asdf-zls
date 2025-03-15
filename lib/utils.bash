@@ -72,7 +72,7 @@ install_version() {
 	(
 		mkdir -p "$install_path"
 
-		cp -r "$ASDF_DOWNLOAD_PATH"/bin/zls "$install_path"
+		cp -r "$ASDF_DOWNLOAD_PATH"/zls "$install_path"
 		chmod +x "$install_path"/zls
 
 		local tool_cmd
