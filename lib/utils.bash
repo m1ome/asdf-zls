@@ -55,7 +55,11 @@ download_release() {
 	*) fail "Unsupported architecture" ;;
 	esac
 
-	url="$GH_REPO/releases/download/${version}/zls-${architecture}-${platform}.tar.xz"
+	if [[ "$version" == *"-dev"* ]]; then
+		url="https://builds.zigtools.org/zls-${architecture}-${platform}-${version}.tar.xz"
+	else
+		url="$GH_REPO/releases/download/${version}/zls-${architecture}-${platform}.tar.xz"
+	fi
 	echo "* Downloading $TOOL_NAME release $version from: $url"
 	curl "${curl_opts[@]}" -H "Accept: application/octet-stream" -o "$filename" "$url" || fail "Could not download $url"
 }
